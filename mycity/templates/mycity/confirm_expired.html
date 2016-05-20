@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="conf_expired">
+        <h1>O prazo para confirmação expirou!</h1>
+        <h3>Tente criar uma nova conta clicando 
+            <a href="{% url 'signup' %}">aqui</a>.</h3>
+     </div>
+{% endblock content %}

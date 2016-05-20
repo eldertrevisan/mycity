@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3 col_profile_l"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left sideways">
+            <li><a href="#profile-form" data-toggle="tab">Editar Perfil</a></li>
+            <li><a href="#messages-v" data-toggle="tab">Messages</a></li>
+            <li><a href="#settings-v" data-toggle="tab">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="col-md-6 col_profile_c">
+        <div class="tab-content">
+            <div class="tab-pane" id="profile-form">
+                {% include "mycity/profile_form.html" %}
+            </div>
+            <div class="tab-pane" id="messages-v">Messages Tab.</div>
+            <div class="tab-pane" id="settings-v">Settings Tab.</div>
+        </div>
+    </div>
+    <div class="col-md-3 col_profile_r">
+    </div>
+    <div class="clearfix"></div>
+</div>
+                
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Latest JQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    
+    {% bootstrap_javascript %}
+    {% block title %}
+    <title>{{ title }}</title>
+    {% endblock title %}
+    
+    <link rel="stylesheet" href="{% static 'css/mycity.css' %}">
+    <script type="text/javascript" src="{% static 'js/mycity.js' %}"></script>
+    
+    <!-- Datepicker JQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Alegreya Sans SC', sans-serif;
+      }
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <menu>
+        {% include "menu.html" %}
+        </menu>
+    {% endif %}
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    {% include "footer.html" %}
+            
+</body>

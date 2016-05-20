@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+                <div class="page-header signup_pg_hd">
+                    <h1>MyCity - Alteração de senha</h1>
+                </div>
+                <div class="signup_form">
+                    <form action="{% url 'change_password' validation_key %}" method="POST" role="form">
+                        {% csrf_token %}
+                        {% bootstrap_form changepasswordform %}
+                        <button type="submit" class="btn btn-default">Alterar</button>
+                        <input type="hidden" value="{{ next }}" />
+                    </form>
+                </div>
+{% endblock content %}

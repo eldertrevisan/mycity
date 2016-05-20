@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+                <div class="page-header signup_pg_hd">
+                    <h1>MyCity - Cadastro</h1>
+                </div>
+                <div class="general_form">
+                    <form action="{% url 'signup' %}" method="POST" role="form">
+                        {% csrf_token %}
+                        {% bootstrap_form signupform %}
+                        <div class="text_conditions">
+                            <h5>Ao se cadastrar você estará concordando com os nossos
+                                <a href="#" title="Termos" target="_blank"> termos </a>
+                                de uso e com nossa política de
+                                <a href="#" title="Privacidade" target="_blank">privacidade</a></h5>
+                        </div>
+                        <button type="submit" class="btn btn-default">Cadastrar</button>
+                        <input type="hidden" value="{{ next }}" />
+                    </form>
+                </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="confirm">
+        <h1>Ativação efetuada com sucesso!</h1>
+        <h3>Estaremos te redirecionado para a página de login em alguns segundos.</h3>
+        <script type="text/javascript">
+        function redirect() {
+            window.location = "{% url 'index' %}";
+        }
+        setTimeout('redirect()', 6000);
+        </script>
+    </div>
+{% endblock content %}

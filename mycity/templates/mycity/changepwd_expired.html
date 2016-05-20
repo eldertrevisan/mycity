@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="conf_expired">
+        <h1>O prazo para alterar a senha expirou!</h1>
+        <h3>Tente novamente clicando 
+            <a href="{% url 'forgot_password' %}">aqui</a>.</h3>
+     </div>
+{% endblock content %}

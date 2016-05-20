@@ -1,0 +1,97 @@
+{% load staticfiles %}
+<div class="profile_form">
+    <form action="{% url 'profile' %}" method="POST" id="eventForm" class="form-horizontal" role="form" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ profileform.non_field_errors }}
+        <div class="form-group">
+            {{ profileform.img_usr.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.img_usr.id_for_label }}">Imagem do perfil</label>
+            <div class="col-md-8">
+                <img src="{{ user.userprofile.img_usr.url }}" class="img-rounded" alt="Imagem do perfil" width="150">
+                <input class="form-control" id="{{ profileform.img_usr.id_for_label }}" name="img_usr" type="file" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.first_name.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.first_name.id_for_label }}">Nome:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.first_name.id_for_label }}" maxlength="50" name="first_name" value="{{ profileform.first_name.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.last_name.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.last_name.id_for_label }}">Sobrenome:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.last_name.id_for_label }}" maxlength="50" name="last_name" value="{{ profileform.last_name.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.date_of_birth.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.date_of_birth.id_for_label }}">Data de nascimento:</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control datepicker" id="{{ profileform.date_of_birth.id_for_label }}" name="date_of_birth" value="{{ profileform.date_of_birth.value }}" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.occupation.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.occupation.id_for_label }}">Ocupação:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.occupation.id_for_label }}" maxlength="50" name="occupation" value="{{ profileform.occupation.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.country.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.country.id_for_label }}">País:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.country.id_for_label }}" maxlength="50" name="country" value="{{ profileform.country.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.state.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.state.id_for_label }}">Estado:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.state.id_for_label }}" maxlength="50" name="state" value="{{ profileform.state.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.city.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.city.id_for_label }}">Cidade:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="{{ profileform.city.id_for_label }}" maxlength="50" name="city" value="{{ profileform.city.value }}" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            {{ profileform.post_types.errors }}
+            <label class="control-label col-md-4" for="{{ profileform.post_types.id_for_label }}">Tipos de postagens:</label>
+            <div class="col-md-8">
+                {{ profileform.post_types }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <button type="submit" class="btn btn-default">Salvar</button>
+            </div>
+        </div>
+        <input type="hidden" value="{{ next }}" />
+    </form>
+</div>
+    
+            
+    <script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            editable: false,
+            minDate: "-150Y",
+            maxDate: "-18Y",
+            yearRange: "c-30:"
+        });
+    });
+    </script>
