@@ -35,12 +35,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_USE_TLS = False
 
-EMAIL_HOST = 'mail.campagnolli.com.br'
+EMAIL_HOST = None
 
-EMAIL_HOST_USER = 'elder@campagnolli.com.br'
+EMAIL_HOST_USER = None
 
 #Must generate specific password for your app in [gmail settings][1]
-EMAIL_HOST_PASSWORD = '123mudar@'
+EMAIL_HOST_PASSWORD = None
 
 EMAIL_PORT = 587
 
